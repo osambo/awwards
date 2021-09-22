@@ -1,0 +1,46 @@
+{% extends 'pages/base.html' %} {% load ratings %} {% load static %} {% load mathfilters %} {% block content %} {{ block.super }}
+<div style="margin-top: 70px;" class="container pages-home">
+    <div class="row w-100">
+        {% for project in posts %}
+        <div class="col-sm-6 mb-4 ">
+            <div class="card p-0">
+                <div class="card-body p-0 m-0">
+                    <div class="project-header p-2">
+                        <img class="rounded-circle article-img" src="{{ project.author.profile.image.url }}" alt="">
+                        <a class="" href="#">{{ project.author }}</a>
+                        <small class="text-muted">{{ project.date_posted|date:"F d, Y" }}</small>
+                        <br><br>
+                    </div>
+                    <div style="background-image: url('{{ project.image.url }}')" class="project-banner">
+
+                    </div>
+                    <br>
+                    <div class="px-2">
+                        <h5>
+                            <a class="article-title" href="{% url 'post-detail' project.id %}">{{ project.title }}</a>
+                        </h5>
+                        <p class="card-text font-italic">{{ project.content }}</p>
+                    </div>
+                    <div class="text-center">
+                        {% ratings project %}
+                        <div>
+
+                            <button class="btn text-center btn-success btn-sm mb-4">
+                                <a
+                                        class="text-white "
+                                        referrerpolicy="no-referrer"
+                                        target="_blank"
+                                        href="{{ project.url }}">
+                                    Go to Site
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
