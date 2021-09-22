@@ -1,0 +1,20 @@
+{% extends 'pages/base.html' %} {% load crispy_forms_tags %} {% block content %}
+<div style="margin: 70px" class="content-section">
+    <p class="h3 text-center">Submit A new Project</p>
+    <div class="col-sm-8 m-auto">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
