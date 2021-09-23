@@ -26,3 +26,8 @@ class Profile(models.Model):
     def create_user_profile(sender,instance,created,**kwargs):
         if created:
             Profile.objects.create(user=instance)
+class Project(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default='')
+    photo = models.ImageField(upload_to = 'posts/', default='No Image')
+    description = models.TextField(max_length=255)
+    url = models.TextField(max_length=255)
