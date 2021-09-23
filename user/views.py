@@ -10,7 +10,8 @@ from .models import  Profile, Project
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    project = Project.objects.all()
+    return render(request,'home.html', {'project':project})
 
 def register(request):
     if request.method == 'POST':

@@ -1,24 +1,21 @@
 {% extends 'base.html' %} {% load ratings %} {% load static %} {% load mathfilters %} {% block content %} {{ block.super }}
 <div style="margin-top: 70px;" class="container pages-home">
     <div class="row w-100">
-        {% for project in posts %}
+        {% for project in project %}
         <div class="col-sm-6 mb-4 ">
             <div class="card p-0">
                 <div class="card-body p-0 m-0">
                     <div class="project-header p-2">
-                        <img class="rounded-circle article-img" src="{{ project.author.profile.image.url }}" alt="">
+                        <img class="rounded-circle article-img" src="{{ project.author.profile.photo.url }}" alt="">
                         <a class="" href="#">{{ project.author }}</a>
                         <small class="text-muted">{{ project.date_posted|date:"F d, Y" }}</small>
                         <br><br>
                     </div>
                     <div style="background-image: url('{{ project.image.url }}')" class="project-banner">
-
+                        <img src=" {{project.photo.url}} " alt=" " style="width:20%; height:20% ">
                     </div>
                     <br>
                     <div class="px-2">
-                        <h5>
-                            <a class="article-title" href="{% url 'post-detail' project.id %}">{{ project.title }}</a>
-                        </h5>
                         <p class="card-text font-italic">{{ project.content }}</p>
                     </div>
                     <div class="text-center">
