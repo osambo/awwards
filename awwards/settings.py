@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'star_ratings',
     'mathfilters',
     'crispy_forms',
+    'rest_framework',
     'user.apps.UserConfig',
     'django.contrib.admin',
     'django.contrib.auth',

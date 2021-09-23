@@ -3,6 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.http import HttpResponse
+from .serializer import ProfileSerializer
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  Profile
 
 # Create your views here.
 def home(request):
@@ -42,3 +46,9 @@ def profile(request):
         'form_profile': form_profile
     }
     return render(request, 'user/profile.html', context)
+
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_Profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_Profiles, many=True)
+        return Response(serializers.data)
