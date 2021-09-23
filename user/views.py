@@ -23,22 +23,22 @@ def register(request):
 @login_required
 def profile(request):
     if request.method == 'POST':
-        form_user = UserUpdateForm(request.POST, instance=request.user)
+        # form_user = UserUpdateForm(request.POST, instance=request.user)
         form_profile = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
 
-        if form_user.is_valid() and form_profile.is_valid():
+        if  form_profile.is_valid():
             form_user.save()
             form_profile.save()
 
             messages.success(request, f'Your account has been updated successfully!')
             return redirect('profile')
     else:
-        form_user = UserUpdateForm(instance=request.user)
+        # form_user = UserUpdateForm(instance=request.user)
         # import pdb;pdb.set_trace()
         form_profile = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
-        'form_user': form_user,
+        # 'form_user': form_user,
         'form_profile': form_profile
     }
     return render(request, 'user/profile.html', context)

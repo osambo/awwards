@@ -6,7 +6,7 @@
                 <p class="h4">User Profile</p>
                 <br>
                 <div style="margin: auto; height: 150px;width: 150px;border-radius: 50%;overflow: hidden" class="user-img">
-                    <img class="img img-circle" src="{{ user.profile.image.url }}" alt="{{ user.username }}">
+                    <img class="img img-circle" src="{{ request.user.profile.image.url }}" alt="{{ request.user.username }}">
                 </div>
                 <div class="text-center">
                     <p class="h2">{{ user.username }}</p>
