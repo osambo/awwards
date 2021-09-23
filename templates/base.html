@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}"> {% if title %}
-    <title>Awwwards Clone - {{ title }}</title>
+    <title>Awwwards - {{ title }}</title>
     {% else %}
-    <title>Awwwards Clone</title>
+    <title>Awwwards</title>
     {% endif %}
 </head>
 
 <body>
     <header class="site-header">
         <nav class="navbar navbar-expand-md fixed-top">
-            <a class="navbar-brand mr-4" href="{% url 'home' %}">Awwwards Clone</a>
+            <a class="navbar-brand mr-4" href="{% url 'home' %}">Awwwards</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>

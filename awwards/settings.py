@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'star_ratings',
     'mathfilters',
+    'pages.apps.PagesConfig',
     'crispy_forms',
     'rest_framework',
     'user.apps.UserConfig',
