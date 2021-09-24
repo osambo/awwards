@@ -37,4 +37,5 @@ email:- felixkodhanjo@gmail.com
 
 ## Lincense
 
+Linsence under MIT
 copyright (c) 2021 Felix Osambo
