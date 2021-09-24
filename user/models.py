@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from PIL import Image
+from django.utils import timezone
+from django.urls import reverse
+
+
 
 # Create your models here.
 class Profile(models.Model):
@@ -31,3 +35,17 @@ class Project(models.Model):
     photo = models.ImageField(upload_to = 'posts/', default='No Image')
     description = models.TextField(max_length=255)
     url = models.TextField(max_length=255)
+
+class Post(models.Model):
+    image = models.ImageField(upload_to='posts/')
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
+    url = models.CharField(max_length=50, blank=True)   
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
